@@ -158,4 +158,94 @@ delay time, and also can make it beep upon change in signal from other sensors.Y
 
 [Video tutorial](https://www.youtube.com/watch?v=UepyY4jF0qg)
 
+### Servo Motors
+- Servo motors are great devices that can turn to a specified position.Usually, they have a servo arm that can turn 180 degrees.
+- Servos are clever devices. Using just one input pin, they receive the position from the Arduino and they go there. 
+- Internally, they have a motor driver and a feedback circuit that makes sure that the servo arm reaches the desired position. 
+- But what kind of signal do they receive on the input pin?It is a square wave similar to PWM. Each cycle in the signal lasts for 20 milliseconds and for most of    the time, the value is LOW.
+- At the beginning of each cycle, the signal is HIGH for a time between 1 and 2 milliseconds. At 1 millisecond it represents 0 degrees and at 2 milliseconds it represents 180 degrees. In between, it represents the value from 0–180. This is a very good and reliable method. The graphic makes it a little easier to understand.
 
+![servo1](https://github.com/sharvaree1921/Tinkering-Bootcamp/blob/master/servo1.jpg)
+
+![servo](https://github.com/sharvaree1921/Tinkering-Bootcamp/blob/master/servo.jpg)
+
+**Code for rotating servo 180 degrees back and forth
+
+```c++
+#include <Servo.h>  //this library is necessary to 
+                //Include in your code    
+int pos = 0;
+Servo servo_9;     //creating the object of the servo
+void setup()
+{
+  servo_9.attach(9); //To which pin is the signal wire      
+}               //attached to arduino pin
+void loop()
+{
+ // sweep the servo from 0 to 180 degrees in steps of 1 degrees
+or (pos = 0; pos <= 180; pos += 1) {
+    // tell servo to go to position in variable 'pos'
+    servo_9.write(pos);
+    // wait 15 ms for servo to reach the position
+    delay(15); // Wait for 15 millisecond(s)
+  }
+  for (pos = 180; pos >= 0; pos -= 1) {
+    // tell servo to go to position in variable 'pos'
+    servo_9.write(pos);
+    // wait 15 ms for servo to reach the position
+    delay(15); // Wait for 15 millisecond(s)
+  }
+}
+```
+[Video tutorial](https://www.youtube.com/watch?v=aFHu65LiFok&list=PLGs0VKk2DiYw-L-RibttcvK-WBZm8WLEP&index=31&t=0s )
+
+### Ultrasonic Sensor
+
+ It is a sensor used to detect distances using the principle of reflection of sound waves. It converts electrical energy into acoustic waves and vice versa. It has 4 pins:-
+ 
+ 1. Vcc:Powers the sensor,typically +5V.
+ 2. Trigger:Input Pin.Trigger pin is usually to be kept high for 10 microseconds to initialize measurement by sending US wave.
+ 3. Echo:Output pin.This pin goes high for a period of time which will be equal to the time taken for the US wave to return back to the sensor.
+ 4. Gnd:0V
+ 
+ ![ultrasonic](https://github.com/sharvaree1921/Tinkering-Bootcamp/blob/master/Ultrasonic-sensor-pinout.png)
+ 
+ _Working_
+ - The microcontroller sends a trigger signal to the ultrasonic sensor. The duty cycle of this trigger signal is 10µS for the HC-SR04 ultrasonic sensor.
+ - When triggered, the ultrasonic sensor generates eight acoustic (ultrasonic) wave bursts and initiates a time counter. 
+ - As soon as the reflected (echo) signal is received, the timer stops.
+ - The output of the ultrasonic sensor is a high pulse with the same duration as the time difference between transmitted ultrasonic bursts and the received echo signal.
+ 
+ P.S.-Arduino's output means Sensor's input
+ 
+ ![ultrasonic1](https://github.com/sharvaree1921/Tinkering-Bootcamp/blob/master/ultrasonic.jpg)
+ 
+ **Code for ultrasonic sensor**
+ ```c++
+Int trigpin=11;                     //defining trigger pin
+int echopin=10;        //defining echopin
+
+void setup()
+{
+  pinMode(11,OUTPUT);  //trigger pin is output pins
+  pinMode(10,INPUT);     //echopin is input pin
+  Serial.begin(9600);     //setting up serial monitor
+}
+
+void loop()
+{
+  digitalWrite(trigpin,LOW); 
+  delayMicroseconds(10);
+  digitalWrite(trigpin,HIGH);    //creates US bursts
+  delayMicroseconds(10);
+  digitalWrite(trigpin,LOW);
+  int time=pulseIn(echopin,HIGH); //measuring time
+  Serial.println(time*0.0165); //look below
+  delay(10); //delay for 10 milliseconds
+}
+
+// The pulseIn measures time duration in microseconds hence we need to multiply 10-6 but we need to measure the distance in cm hence we need to multiply by 102 and we have traversed twice the distance hence we need to divide by 2.
+We are taking the speed of sound approximately equal to 330m/s. Hence we get the factor of 0.0165.
+
+ ```
+ 
