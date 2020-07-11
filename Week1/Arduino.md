@@ -101,8 +101,9 @@ delay(10);
 ```
 ![Code](https://github.com/sharvaree1921/Tinkering-Bootcamp/blob/master/photoresistor-arduino.jpg)
 
-
-
-
-
+**Extra Resources**
+1. [Blinking of LED in Tinkercad](https://www.youtube.com/watch?v=yyG0koj9nNY -)
+2. [Digital and Analog Signals](https://www.guru99.com/analog-vs-digital.html )
+3. [PWM Signals](https://www.youtube.com/watch?v=GQLED3gmONghttps://youtu.be/ISzRh5eN_Pg )
+4. [Photoresistors](https://www.youtube.com/watch?v=2fvXW4OEWLE)
 
