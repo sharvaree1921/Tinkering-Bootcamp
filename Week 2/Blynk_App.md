@@ -7,18 +7,26 @@
 What are they?
 ● They are some virtual pins exist in the blynk app to send and
 receive signals with your ESP32 board
+
 Why to use?
+
 ● You can use them to control output to real pins according to the
 code in which input is from virtual pins
+
 ● Some frequently used functions in Blynk don’t have real pins.
 
 #### Functions in Arduino IDE
+
 ● BLYNK_WRITE()
+
 ● BLYNK_READ()
+
 ● Timer
 These are some basic ones, there are many more widgets and
 functions to look into like-
+
 ● Bridge
+
 ● Joystick and so on
 You can try this by yourself for fun
 
