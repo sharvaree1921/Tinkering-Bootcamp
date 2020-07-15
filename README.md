@@ -7,6 +7,6 @@ In this Repository, I will be including the stuff that I learnt in the bootcamp 
 
 [**Week 2**](https://github.com/sharvaree1921/Tinkering-Bootcamp/tree/master/Week%202)- Introduction to ESP module and blynk app.
 
-**Week 3**- Blynk app and integration of voice assistant. 
+[**Week 3**](https://github.com/sharvaree1921/Tinkering-Bootcamp/tree/master/Week3)- Blynk app and integration of voice assistant. 
 
-**Week 4**- Raspberry Pi
+[**Week 4**](https://github.com/sharvaree1921/Tinkering-Bootcamp/tree/master/Week4)- Raspberry Pi
