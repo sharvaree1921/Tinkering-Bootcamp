@@ -117,3 +117,21 @@ Image._show(img)
 text=tess.image_to_string(img)  #prints the extracted text
 print(text)
 ```
+
+### GTTS (Google Text To Speech)
+
+1.
+```python
+from gtts import gTTS
+import os
+
+text ="Hello World"
+output=gTTS(text)
+output.save("out.mp3")
+os.system("start out.mp3")
+```
+
+So,now we have three powerful libraries to solve an innovative problem statement-
+Read the image,extract the text and read aloud that text so that blind people can hear it.
+
+Like ,we can have Rpi,its camera module and attach a button.When a button is pressed,a picture a clicked and further processing takes place.
